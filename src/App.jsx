@@ -1,10 +1,7 @@
-import Banner from "./Banner";
-import { Navbar } from "./Navbar";
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <Banner></Banner>
+      <h1>Master Branch</h1>
     </>
   );
 }

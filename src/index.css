@@ -1,0 +1,21 @@
+#navbar ul{
+    display: flex;
+    flex-wrap:wrap;
+    list-style: none;
+    justify-content: space-around;
+    padding:0px;
+}
+.categories ul{
+    display: flex;
+    flex-wrap:wrap;
+    padding:0px;
+    justify-content: space-evenly;
+    list-style: none;
+}
+.categories ul li{
+    padding:5px;
+    font-size: 0.85em;
+    margin:5px;
+    background-color: rgb(179, 179, 178);
+    border-radius: 5px;
+}

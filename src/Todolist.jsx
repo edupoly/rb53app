@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-function Todolist({ todoR: { todos }, dispatch }) {
+import { addTodoActionCreator } from "./store/actionCreators";
+function Todolist({ todos, addTodo }) {
   console.log("Todolist rendered");
   return (
     <div className="border border-success border-5 p-2 m-2">
@@ -8,10 +9,7 @@ function Todolist({ todoR: { todos }, dispatch }) {
       <input type="text" id="d1" />
       <button
         onClick={() => {
-          dispatch({
-            type: "ADD_TODO",
-            newtodo: document.getElementById("d1").value,
-          });
+          addTodo(document.getElementById("d1").value);
         }}
       >
         Add Todo
@@ -24,7 +22,14 @@ function Todolist({ todoR: { todos }, dispatch }) {
     </div>
   );
 }
-
-export default connect((store) => {
-  return store;
-})(Todolist);
+function mapStateToProps(state) {
+  return state.todoR;
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    addTodo: (nt) => {
+      dispatch(addTodoActionCreator(nt));
+    },
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Todolist);

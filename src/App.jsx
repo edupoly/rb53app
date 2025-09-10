@@ -1,14 +1,14 @@
-import Counter from "./features/counter/Counter";
-import Products from "./features/products/Products";
-import Todolist from "./features/todolist/Todolist";
+import { Link, Outlet } from "react-router-dom";
+import Todos from "./features/todos/Todos";
 
 function App() {
   return (
     <div className="border border-2 border-success m-2 p-2">
       <h1>Master Branch</h1>
-      <Products></Products>
-      <Counter></Counter>
-      <Todolist></Todolist>
+      <Link to="/">Home</Link>&nbsp;&nbsp;
+      <Link to="/todos">AllTodo</Link>&nbsp;&nbsp;
+      <Link to="/addtodo">AddTodo</Link>&nbsp;&nbsp;
+      <Outlet></Outlet>
     </div>
   );
 }

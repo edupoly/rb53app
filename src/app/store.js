@@ -1,15 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
-import todoReducer from "../features/todolist/todolistSlice";
-import { productsApi } from "../services/products";
+import { todosApi } from "../services/todosapi";
 import { setupListeners } from "@reduxjs/toolkit/query";
 export const store = configureStore({
   reducer: {
-    cntR: counterReducer,
-    todoR: todoReducer,
-    [productsApi.reducerPath]: productsApi.reducer,
+    [todosApi.reducerPath]: todosApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware),
+    getDefaultMiddleware().concat(todosApi.middleware),
 });
 setupListeners(store.dispatch);

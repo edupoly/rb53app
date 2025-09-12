@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Counter({ a, s, p }) {
-  var [count, setCountFn] = useState(a);
+function Counter() {
+  var [count, setCountFn] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      setCountFn((cv) => {
+        return cv + 1;
+      });
+      console.log("setinterval call aindi");
+    }, 2000);
+  }, []);
 
   function incCount() {
-    setCountFn(count + s);
+    for (var i = 1; i <= 4; i++) {
+      setCountFn(count + 2);
+      setCountFn((cv) => {
+        return cv + 1;
+      });
+    }
   }
   function decCount() {
-    setCountFn(count - s);
+    setCountFn(count - 1);
   }
   return (
     <div className="border border-2 border-success p-2 m-2">
@@ -25,13 +39,6 @@ function Counter({ a, s, p }) {
         }}
       >
         Dec
-      </button>
-      <button
-        onClick={() => {
-          p(count);
-        }}
-      >
-        Mee parents ki call chestha
       </button>
     </div>
   );

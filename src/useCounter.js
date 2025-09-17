@@ -17,9 +17,12 @@ export function useCounter(icount, step, name) {
       return cv + step;
     });
   }
+
   useEffect(() => {
     window.localStorage.setItem(name, count);
+    document.title = `${name} : ${count}`;
   }, [count, name]);
+
   function decCount() {
     setCount(count - step);
   }

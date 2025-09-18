@@ -1,6 +1,9 @@
 import React from "react";
 
 function Aboutus() {
+  React.useEffect(() => {
+    document.title = "Aboutus";
+  }, []);
   return (
     <div>
       <h1>Aboutus</h1>

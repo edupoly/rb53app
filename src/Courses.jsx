@@ -1,6 +1,9 @@
 import React from "react";
 
 function Courses() {
+  React.useEffect(() => {
+    document.title = "Courses";
+  }, []);
   return (
     <div>
       <ul>

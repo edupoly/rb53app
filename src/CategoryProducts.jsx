@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function CategoryProducts() {
   var { cslug } = useParams();
   var [products, setProducts] = useState([]);
+  React.useEffect(() => {
+    document.title = `${cslug} Category Products`;
+  });
   useEffect(() => {
     fetch(`https://dummyjson.com/products/category/${cslug}`)
       .then((res) => res.json())

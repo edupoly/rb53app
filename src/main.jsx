@@ -1,21 +1,26 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./Home.jsx";
-import Aboutus from "./Aboutus.jsx";
-import Courses from "./Courses.jsx";
+const Home = lazy(() => import("./Home.jsx"));
+const Aboutus = lazy(() => "./Aboutus.jsx");
+const Courses = lazy(() => "./Courses.jsx");
 import CategoryProducts from "./CategoryProducts.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+        {" "}
+        <App />
+      </Suspense>
+    ),
     children: [
       {
         path: "/home",
-        element: <Home></Home>,
+        element: <Suspense fallback={<h1>Loading....</h1>}><Home></Home> </Suspense>
+       ,
       },
       {
         path: "/aboutus",

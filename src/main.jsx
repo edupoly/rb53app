@@ -4,31 +4,38 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const Home = lazy(() => import("./Home.jsx"));
-const Aboutus = lazy(() => "./Aboutus.jsx");
-const Courses = lazy(() => "./Courses.jsx");
+const Aboutus = lazy(() => import("./Aboutus.jsx"));
+const Courses = lazy(() => import("./Courses.jsx"));
 import CategoryProducts from "./CategoryProducts.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-        {" "}
-        <App />
-      </Suspense>
-    ),
+    element: <App />,
     children: [
       {
         path: "/home",
-        element: <Suspense fallback={<h1>Loading....</h1>}><Home></Home> </Suspense>
-       ,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Home></Home>
+          </Suspense>
+        ),
       },
       {
         path: "/aboutus",
-        element: <Aboutus></Aboutus>,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Aboutus></Aboutus>
+          </Suspense>
+        ),
       },
       {
         path: "/courses",
-        element: <Courses></Courses>,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Courses></Courses>
+          </Suspense>
+        ),
       },
       {
         path: "/category/:cslug",

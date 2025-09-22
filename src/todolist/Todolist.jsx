@@ -3,14 +3,21 @@ import { TodoContext } from "./TodoContext";
 
 function Todolist() {
   var { todos, addTodo, deleteTodo } = useContext(TodoContext);
+  var [newtodo, setnewtodo] = useContext("");
   console.log(todos);
   return (
     <div className="border border-2 border-info m-2 p-2">
       <h1>Todolist</h1>
-      <input type="text" id="d1" />
+      <input
+        type="text"
+        id="d1"
+        onChange={(e) => {
+          setnewtodo(e.target.value);
+        }}
+      />
       <button
         onClick={() => {
-          addTodo(document.getElementById("d1").value);
+          addTodo(newtodo);
         }}
       >
         Add Todo

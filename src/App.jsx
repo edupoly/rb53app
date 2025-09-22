@@ -10,6 +10,10 @@ function App() {
         <Navbar></Navbar>
         <Todolist></Todolist>
       </TodoProvider>
+      <TodoProvider>
+        <Navbar></Navbar>
+        <Todolist></Todolist>
+      </TodoProvider>
     </div>
   );
 }

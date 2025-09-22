@@ -7,6 +7,7 @@ const Home = lazy(() => import("./Home.jsx"));
 const Aboutus = lazy(() => import("./Aboutus.jsx"));
 const Courses = lazy(() => import("./Courses.jsx"));
 import CategoryProducts from "./CategoryProducts.jsx";
+import Login from "./features/user/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         element: <CategoryProducts></CategoryProducts>,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
   },
 ]);
 

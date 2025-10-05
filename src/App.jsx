@@ -1,32 +1,28 @@
 import { useEffect, useRef } from "react";
-import TodoList from "./Todolist";
+
+import Address from "./Address";
 
 function App() {
-  // var aRef = useRef();
-  // var bRef = useRef();
-
-  // function handleClick() {
-  //   var x = aRef.current.value;
-  //   bRef.current.innerText = x;
-  // }
-  // useEffect(() => {
-  //   aRef.current.focus();
-  // }, []);
+  var aRef = useRef();
+  var bRef = useRef();
+  useEffect(() => {
+    aRef.current.focus();
+  }, []);
+  function checkEnter(ev) {
+    if (ev.key === "Enter") {
+      bRef.current.focus();
+    }
+  }
   return (
     <div className="border border-2 border-success m-2 p-2">
-      <h1>Master Branch</h1>
-      <TodoList></TodoList>
-      {/* <input type="text" ref={aRef} />
-      <button
-        onClick={() => {
-          handleClick();
+      <input
+        type="text"
+        ref={aRef}
+        onKeyUp={(e) => {
+          checkEnter(e);
         }}
-      >
-        Show text
-      </button>
-      <h3>
-        My Name is :: <span ref={bRef}></span>
-      </h3> */}
+      />
+      <Address ref={bRef}></Address>
     </div>
   );
 }

@@ -1,22 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
 import Categories from "./Categories";
+import Navbar from "./Navbar";
 
 function App() {
   return (
     <div>
-      <div id="navbar">
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/aboutus">Learn More Aboutus</Link>
-          </li>
-          <li>
-            <Link to="/courses">Technologies</Link>
-          </li>
-        </ul>
-      </div>
+      <Navbar></Navbar>
       <Categories></Categories>
       <div>
         <Outlet></Outlet>
